@@ -1,5 +1,4 @@
-﻿// Copyright (c) 2011 rubicon IT GmbH
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,7 @@ namespace snippets.snippets
 
     public class delegator
     {
-        static int num = 10;
+        private static int num = 10;
 
         public void AddNum(int p)
         {

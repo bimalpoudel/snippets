@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace snippets.snippets
 {
-    class numbers
+    public class numbers
     {
         Random rand = new Random();
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace snippets
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Program p = new Program();
 
@@ -28,7 +28,7 @@ namespace snippets
             Console.ReadLine();
         }
 
-        void testVersion()
+        private void testVersion()
         {
             /**
              * @see http://stackoverflow.com/questions/19532942/which-version-of-c-sharp-am-i-using
@@ -54,25 +54,25 @@ namespace snippets
              */
         }
 
-        void testPoint()
+        private void testPoint()
         {
             Point p = new Point(0, 0);
             Console.WriteLine("Point: " + p);
         }
 
-        void testCube()
+        private void testCube()
         {
             Cube c = new Cube(0, 0, 0);
             Console.WriteLine("Cube: " + c);
         }
 
-        void testNumbers()
+        private void testNumbers()
         {
             numbers n = new numbers();
             Console.WriteLine("Numbers: " + n.GenerateString(5));
         }
 
-        void testKeygen()
+        private void testKeygen()
         {
             keygen k = new keygen();
             string key = k.generate(5);
@@ -82,7 +82,7 @@ namespace snippets
         /**
          * @todo Fix the output to proper JSON
          */
-        void testJSON()
+        private void testJSON()
         {
             Dictionary<string, Dictionary<string, string>> body = new Dictionary<string, Dictionary<string, string>>();
             Dictionary<string, string> measures = new Dictionary<string, string>();
@@ -107,21 +107,21 @@ namespace snippets
         /**
          * @see https://msdn.microsoft.com/en-us/library/system.security.cryptography.hashalgorithm.computehash.aspx
          */
-        void testSHA1FromString()
+        private void testSHA1FromString()
         {
             hasher hasher = new snippets.hasher();
             string hash = hasher.sha1("");
             Console.WriteLine("SHA1 Hash: " + hash);
         }
 
-        void testMD5FromString()
+        private void testMD5FromString()
         {
             hasher hasher = new snippets.hasher();
             string hash = hasher.md5("");
             Console.WriteLine("MD5 Hash: " + hash);
         }
 
-        void testIndexers()
+        private void testIndexers()
         {
             Indexers names = new Indexers(5);
             names[0] = "One";
@@ -137,36 +137,36 @@ namespace snippets
             }
         }
 
-        void testDelegator()
+        private void testDelegator()
         {
             delegator d = new delegator();
 
             //create delegate instances using anonymous method
-            NumberChanger nc = delegate (int x)
+            NumberChanger nc0 = delegate (int x)
             {
                 Console.WriteLine("Delegator: Anonymous Method: {0}", x);
             };
 
             //calling the delegate using the anonymous method
-            nc(10);
+            nc0(10);
 
             //instantiating the delegate using the named methods
             //nc = new NumberChanger(AddNum);
-            nc = new NumberChanger(d.AddNum);
+            NumberChanger nc1 = new NumberChanger(d.AddNum);
 
             //calling the delegate using the named methods
-            nc(5);
+            nc1(5);
 
             //instantiating the delegate using another named methods
             //nc = new NumberChanger(MultNum);
-            nc = new NumberChanger(d.MultNum);
+            NumberChanger nc2 = new NumberChanger(d.MultNum);
 
             //calling the delegate using the named methods
-            nc(2);
+            nc2(2);
         }
 
         // project > properties > build > allow unsafe code
-        unsafe void testUnsafe()
+        private unsafe void testUnsafe()
         {
             int var = 20;
             int* p = &var;

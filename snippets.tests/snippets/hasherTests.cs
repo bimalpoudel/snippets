@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace snippets.snippets.Tests
 {
     [TestClass()]
-    public class hasherTests
+    public class hasherTests: BaseTest
     {
         [TestMethod()]
         [TestCategory("Hashing: SHA1")]
